@@ -1,0 +1,108 @@
+/* Existing styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f6f8fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.welcome-container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.btn.primary {
+    background-color: #4f46e5;
+}
+
+.btn.secondary {
+    background-color: #6b7280;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* New styles for the login and signup forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add spacing between inputs */
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input:focus {
+    border-color: #4f46e5; /* Highlight input on focus */
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #4f46e5;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #3b3fcf;
+}
+
+p#message {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}

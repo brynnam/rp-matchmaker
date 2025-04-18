@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP Matchmaker Signup</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="welcome-container">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="text" id="username" placeholder="Username (must start with @)" value = "@" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">sign up</button>
+    </form>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = form.username.value;
+      const password = form.password.value;
+
+      // Client-side validation: Username must start with @
+      if (!username.startsWith('@')) {
+        document.getElementById('message').textContent = 'Username must start with @.';
+        return;
+      }
+
+      try {
+        const res = await fetch('/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          localStorage.setItem('token', data.token);
+          window.location.href = '/'; // Redirect to form or dashboard
+        } else {
+          document.getElementById('message').textContent = data.message;
+        }
+      } catch (error) {
+        console.error('Error during signup:', error);
+        document.getElementById('message').textContent = 'An error occurred. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
